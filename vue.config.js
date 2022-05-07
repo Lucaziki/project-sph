@@ -1,9 +1,21 @@
-const { defineConfig } = require("@vue/cli-service");
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
+  // 关闭Eslint
+  lintOnSave: false,
+  // 代理跨域
   devServer: {
-    open: true,
-    host: "localhost",
-    port: "5050",
+    proxy: {
+      "/api": {
+        // target: 'http://39.98.123.211',
+        target: "http://gmall-h5-api.atguigu.cn",
+        // 在配置服务器请求数据时 去掉/api前缀
+        // pathRewrite:{
+        //   '^/api':''
+        // },
+        // websocket
+        ws: true,
+        // 输出请求服务器的端口
+        changeOrigin: true,
+      },
+    },
   },
-});
+};
