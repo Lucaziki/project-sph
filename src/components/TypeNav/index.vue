@@ -34,7 +34,7 @@
                 >
                   <div
                     class="subitem"
-                    v-for="(c2, index) in c1.categoryChild"
+                    v-for="c2 in c1.categoryChild"
                     :key="c2.categoryId"
                   >
                     <dl class="fore">
@@ -47,10 +47,7 @@
                         >
                       </dt>
                       <dd>
-                        <em
-                          v-for="(c3, index) in c2.categoryChild"
-                          :key="c3.categoryId"
-                        >
+                        <em v-for="c3 in c2.categoryChild" :key="c3.categoryId">
                           <a
                             href=""
                             :data-categoryName="c3.categoryName"
